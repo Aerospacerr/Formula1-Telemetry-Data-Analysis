@@ -52,6 +52,14 @@ default_ix_session = values_session.index('Q')
 select_session = st.selectbox('Sessions', values_session, index=default_ix_session)
 st.write(select_session)
 
+st.header("Select Pilots")
+values_pilots = ['LEC', 'PER']
+default_ix_pilots = values_session.index(values_pilots)
+select_pilots = st.multiselect('Sessions', values_pilots, index=default_ix_pilots)
+st.write(select_pilots)
+
+
+
 # load a session and its telemetry data
 with st.spinner("Loading data..."):
     selected_session = load_data(select_year, select_race, select_session)
@@ -79,7 +87,8 @@ lec_tel = lec_lap.get_car_data().add_distance()
 rbr_color = fastf1.plotting.team_color('RBR')
 fer_color = fastf1.plotting.team_color('FER')
 
-fig, ax = plt.subplots()
+###
+fig1, ax = plt.subplots()
 ax.plot(per_tel['Time'], per_tel['Speed'], color=rbr_color, label='PER')
 ax.plot(lec_tel['Time'], lec_tel['Speed'], color=fer_color, label='LEC')
 
@@ -87,7 +96,35 @@ ax.set_xlabel('Time in sec')
 ax.set_ylabel('Speed in km/h')
 
 ax.legend()
-plt.suptitle(f"Fastest Lap Comparison \n "
+plt.suptitle(f"Fastest Lap Speed Comparison \n "
              f"{session.event['EventName']} {session.event.year} Qualifying")
 
-st.write(fig)
+st.write(fig1)
+
+
+###
+fig2, ax2 = plt.subplots()
+ax2.plot(per_lap.get_telemetry().Time, per_lap.get_telemetry().Throttle, color=rbr_color, label='PER')
+ax2.plot(lec_lap.get_telemetry().Time, lec_lap.get_telemetry().Throttle, color=fer_color, label='LEC')
+
+ax2.set_xlabel('Time in sec')
+ax2.set_ylabel('Throttle Percent %')
+
+ax2.legend()
+plt.suptitle(f"Fastest Lap Throttle Comparison \n "
+             f"{session.event['EventName']} {session.event.year} Qualifying")
+st.write(fig3)
+
+
+###
+fig2, ax2 = plt.subplots()
+ax2.plot(per_lap.get_telemetry().Time, per_lap.get_telemetry().nGear, color=rbr_color, label='PER')
+ax2.plot(lec_lap.get_telemetry().Time, lec_lap.get_telemetry().nGear, color=fer_color, label='LEC')
+
+ax2.set_xlabel('Time in sec')
+ax2.set_ylabel('Gear')
+
+ax2.legend()
+plt.suptitle(f"Fastest Lap Gear Shift Comparison \n "
+             f"{session.event['EventName']} {session.event.year} Qualifying")
+st.write(fig2)
