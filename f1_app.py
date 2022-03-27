@@ -55,7 +55,7 @@ st.write(select_session)
 # load a session and its telemetry data
 with st.spinner("Loading data..."):
     selected_session = load_data(select_year, select_race, select_session)
-    st.write(selected_session.head(100))
+    st.write(selected_session)
 
 
 
