@@ -34,7 +34,7 @@ st.markdown(
 
 # select necessary details for each race
 st.header("Select Year")
-select_year = st.selectbox('Championship Year', ['2020', '2021', '2022'], 0)
+select_year = st.selectbox('Championship Year', ['2020', '2021', '2022'], 2020)
 
 st.header("Select Race")
 select_race = st.selectbox('Race Places', ['Bahrain', '2'], 0)
@@ -44,7 +44,7 @@ select_session = st.selectbox('Sessions', ['Q', 'R'], 0)
 
 # load a session and its telemetry data
 with st.spinner("Loading data..."):
-    selected_session = load_data(2022, 2, 4)
+    selected_session = load_data(select_year, 2, 4)
 
 st.write(selected_session)
 
