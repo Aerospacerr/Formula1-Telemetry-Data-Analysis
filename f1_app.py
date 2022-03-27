@@ -38,14 +38,14 @@ st.header("Select Year")
 select_year = st.selectbox('Championship Year', ['2020', '2021', '2022'], 0)
 
 st.header("Select Race")
-select_year = st.selectbox('Race Places', ['Bahrain', '2'], 0)
+select_race = st.selectbox('Race Places', ['Bahrain', '2'], 0)
 
 st.header("Select Session")
 select_session = st.selectbox('Sessions', ['Q', 'R'], 0)
 
 # load a session and its telemetry data
 with st.spinner("Loading data..."):
-    selected_session = load_data()
+    selected_session = load_data(select_year, select_race, select_session)
 
 
 """
