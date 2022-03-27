@@ -35,7 +35,7 @@ st.markdown(
 # select necessary details for each race
 st.header("Select Year")
 values_year = [2020, 2021, 2022]
-default_ix_year = values_year.index(2020)
+default_ix_year = values_year.index(2022)
 select_year = st.selectbox('Championship Year', values_year, index=default_ix_year)
 st.write(select_year)
 
@@ -62,3 +62,32 @@ with st.spinner("Loading data..."):
 
 ### with st.spinner("Loading data..."):
 ###    selected_session = load_data(2022, 2, 'Q')
+
+
+
+##### let's plot something
+session=selected_session
+fastf1.plotting.setup_mpl()
+session.load()
+
+per_lap = session.laps.pick_driver('PER').pick_fastest()
+lec_lap = session.laps.pick_driver('LEC').pick_fastest()
+
+per_tel = per_lap.get_car_data().add_distance()
+lec_tel = lec_lap.get_car_data().add_distance()
+
+rbr_color = fastf1.plotting.team_color('RBR')
+fer_color = fastf1.plotting.team_color('FER')
+
+fig, ax = plt.subplots()
+ax.plot(per_tel['Time'], per_tel['Speed'], color=rbr_color, label='PER')
+ax.plot(lec_tel['Time'], lec_tel['Speed'], color=fer_color, label='LEC')
+
+ax.set_xlabel('Time in sec')
+ax.set_ylabel('Speed in km/h')
+
+ax.legend()
+plt.suptitle(f"Fastest Lap Comparison \n "
+             f"{session.event['EventName']} {session.event.year} Qualifying")
+
+st.write(fig)
