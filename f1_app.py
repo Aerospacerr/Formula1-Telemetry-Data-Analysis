@@ -113,18 +113,18 @@ ax2.set_ylabel('Throttle Percent %')
 ax2.legend()
 plt.suptitle(f"Fastest Lap Throttle Comparison \n "
              f"{session.event['EventName']} {session.event.year} Qualifying")
-st.write(fig3)
+st.write(fig2)
 
 
 ###
-fig2, ax2 = plt.subplots()
-ax2.plot(per_lap.get_telemetry().Time, per_lap.get_telemetry().nGear, color=rbr_color, label='PER')
-ax2.plot(lec_lap.get_telemetry().Time, lec_lap.get_telemetry().nGear, color=fer_color, label='LEC')
+fig3, ax3 = plt.subplots()
+ax3.plot(per_lap.get_telemetry().Time, per_lap.get_telemetry().nGear, color=rbr_color, label='PER')
+ax3.plot(lec_lap.get_telemetry().Time, lec_lap.get_telemetry().nGear, color=fer_color, label='LEC')
 
-ax2.set_xlabel('Time in sec')
-ax2.set_ylabel('Gear')
+ax3.set_xlabel('Time in sec')
+ax3.set_ylabel('Gear')
 
-ax2.legend()
+ax3.legend()
 plt.suptitle(f"Fastest Lap Gear Shift Comparison \n "
              f"{session.event['EventName']} {session.event.year} Qualifying")
-st.write(fig2)
+st.write(fig3)
