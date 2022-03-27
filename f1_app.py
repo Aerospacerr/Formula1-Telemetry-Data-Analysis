@@ -54,7 +54,7 @@ st.write(select_session)
 
 st.header("Select Pilots")
 values_pilots = ['LEC', 'PER']
-default_ix_pilots = values_session.index(values_pilots)
+default_ix_pilots = values_pilots.index('LEC', 'PER')
 select_pilots = st.multiselect('Sessions', values_pilots, index=default_ix_pilots)
 st.write(select_pilots)
 
