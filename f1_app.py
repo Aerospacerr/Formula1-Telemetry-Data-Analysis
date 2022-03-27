@@ -35,7 +35,7 @@ st.markdown(
 # select necessary details for each race
 st.header("Select Year")
 values_year = ['<select>', 2020, 2021, 2022]
-default_ix = values.index(2020)
+default_ix = values_year.index(2020)
 select_year = st.selectbox('Championship Year', values_year, index=default_ix)
 st.write(select_year)
 
