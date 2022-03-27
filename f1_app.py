@@ -32,8 +32,7 @@ st.markdown(
     "This application is a Streamlit dashboard that can be used to analyze F1 Telemetry Data")
 
 
-
-#select necessary details for each race
+# select necessary details for each race
 st.header("Select Year")
 select_year = st.selectbox('Championship Year', ['2020', '2021', '2022'], 0)
 
@@ -45,8 +44,11 @@ select_session = st.selectbox('Sessions', ['Q', 'R'], 0)
 
 # load a session and its telemetry data
 with st.spinner("Loading data..."):
-    selected_session = load_data(select_year, select_race, select_session)
+    selected_session = load_data(select_year, select_race, 'Q')
 
+
+### with st.spinner("Loading data..."):
+###    selected_session = load_data(2022, 2, 'Q')
 
 """
 query_persons_string = f'number_of_{select.lower().split()[0]}_{select.lower().split()[1]}'
