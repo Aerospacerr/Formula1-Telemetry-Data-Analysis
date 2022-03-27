@@ -44,7 +44,7 @@ select_session = st.selectbox('Sessions', ['Q', 'R'], 0)
 
 # load a session and its telemetry data
 with st.spinner("Loading data..."):
-    selected_session = load_data(select_year, select_race, 'Q')
+    selected_session = load_data(2022, 2, 4)
 
 
 ### with st.spinner("Loading data..."):
