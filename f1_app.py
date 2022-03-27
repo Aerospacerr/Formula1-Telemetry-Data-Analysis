@@ -34,7 +34,7 @@ st.markdown(
 
 # select necessary details for each race
 st.header("Select Year")
-select_year = st.selectbox('Championship Year', ['2020', '2021', '2022'], 2020)
+select_year = st.selectbox('Championship Year', ['2020', '2021', '2022'])
 
 st.header("Select Race")
 select_race = st.selectbox('Race Places', ['Bahrain', '2'], 0)
