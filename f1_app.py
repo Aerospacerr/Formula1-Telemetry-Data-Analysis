@@ -48,7 +48,7 @@ st.write(select_race)
 
 st.header("Select Session")
 values_session = ['Q', 'R']
-default_ix_session = values_place.index('Q')
+default_ix_session = values_session.index('Q')
 select_session = st.selectbox('Sessions', values_session, index=default_ix_session)
 st.write(select_session)
 
