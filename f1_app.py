@@ -34,7 +34,11 @@ st.markdown(
 
 # select necessary details for each race
 st.header("Select Year")
-select_year = st.selectbox('Championship Year', ['2020', '2021', '2022'], 0)
+values_year = ['<select>', 2020, 2021, 2022]
+default_ix = values.index(2020)
+select_year = st.selectbox('Championship Year', values_year, index=default_ix)
+st.write(select_year)
+
 
 st.header("Select Race")
 select_race = st.selectbox('Race Places', ['Bahrain', '2'], 0)
@@ -46,7 +50,7 @@ select_session = st.selectbox('Sessions', ['Q', 'R'], 0)
 with st.spinner("Loading data..."):
     selected_session = load_data(select_year, 2, 4)
 
-st.write(selected_session)
+
 
 
 
