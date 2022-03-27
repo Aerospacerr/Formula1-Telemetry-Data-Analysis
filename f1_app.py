@@ -41,8 +41,8 @@ st.write(select_year)
 
 
 st.header("Select Race Place")
-values_place = [Bahrain, Saudi Arabia]
-default_ix_race = values_place.index(2020)
+values_place = ['Bahrain', 'Saudi Arabia']
+default_ix_race = values_place.index('Bahrain')
 select_race = st.selectbox('Race Places', values_place, index=default_ix_race)
 
 st.header("Select Session")
