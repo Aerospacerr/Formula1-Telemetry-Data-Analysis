@@ -46,11 +46,13 @@ default_ix_race = values_place.index('Bahrain')
 select_race = st.selectbox('Race Places', values_place, index=default_ix_race)
 
 st.header("Select Session")
-select_session = st.selectbox('Sessions', ['Q', 'R'], 0)
+values_session = ['Q', 'R']
+default_ix_session = values_place.index('Q')
+select_session = st.selectbox('Sessions', ['Q', 'R'], index=default_ix_session)
 
 # load a session and its telemetry data
 with st.spinner("Loading data..."):
-    selected_session = load_data(select_year, select_race, 4)
+    selected_session = load_data(select_year, select_race, select_session)
 
 
 
