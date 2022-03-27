@@ -46,6 +46,9 @@ select_session = st.selectbox('Sessions', ['Q', 'R'], 0)
 with st.spinner("Loading data..."):
     selected_session = load_data(2022, 2, 4)
 
+st.write(selected_session)
+
+
 
 ### with st.spinner("Loading data..."):
 ###    selected_session = load_data(2022, 2, 'Q')
